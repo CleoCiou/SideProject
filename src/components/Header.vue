@@ -8,7 +8,8 @@
       to change theme!
     </div>
     <nav>
-      <router-link :to="{name: 'Home'}"> UserTable </router-link> |
+      <router-link :to="{name: 'Require'}"> Home </router-link> |
+      <router-link :to="{name: 'UserTable'}"> UserTable </router-link> |
       <router-link :to="{name: 'Profile'}"> Profile </router-link>
     </nav>
   </header>
@@ -19,9 +20,8 @@ export default {
   props: ['theme'],
   methods: {
     changeTheme(e) {
-      const theme = (e.target.innerText === 'dark-theme') ? 'light-theme' : 'dark-theme'
-      e.target.innerText = theme;
-      this.$emit('change-theme', theme);
+      e.target.innerText = (e.target.innerText === 'dark-theme') ? 'light-theme' : 'dark-theme'
+      this.$emit('change-theme', e.target.innerText);
     }
   }
 }

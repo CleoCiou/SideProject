@@ -1,20 +1,35 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from './pages/Home';
+import Require from './pages/Require';
+import UserTable from './pages/UserTable';
 import Profile from './pages/Profile';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/',
+    name: 'Require',
+    component: Require,
+    meta: {
+      title: 'UserTable'
+    }
+  },
+  {
+    path: '/UserTable',
+    name: 'UserTable',
+    component: UserTable,
+    meta: {
+      title: 'UserTable'
+    }
   },
   {
     path: '/Profile',
     name: 'Profile',
-    component: Profile
+    component: Profile,
+    meta: {
+      title: 'UserTable'
+    }
   }
 ]
 

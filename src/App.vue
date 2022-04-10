@@ -2,7 +2,7 @@
 import router from './Router';
 
 // pages
-import Home from './pages/Home';
+import UserTable from './pages/UserTable';
 import Profile from './pages/Profile';
 
 // components
@@ -11,13 +11,13 @@ import Header from './components/Header';
 export default {
   router,
   components: {
-    Home,
+    UserTable,
     Profile,
     Header
   },
   data() {
     return {
-      theme: 'light-theme'
+      theme: 'dark-theme'
     }
   },
   methods: {
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <template>
-  <div :class="theme">
+  <div :class="(theme === 'dark-theme') ? 'light-theme' : 'dark-theme'">
     <Header :theme="theme" @change-theme="changeTheme" />
     <router-view />
   </div>
@@ -39,6 +39,25 @@ export default {
   @import './styles/_base.scss';
 
   body {
+    > div {
+      min-height: 100vh;
+    }
+
+    span, li {
+      line-height: 1.2em;
+      letter-spacing: .5px;
+    }
+
+    li:before {
+      content: '';
+      height: .5em;
+      width: .5em;
+      display: inline-block;
+      margin-right: 0.5em;
+      border-radius: 50%;
+      background-color: #888;
+    }
+
     .light-theme {
       @include theme(true);
 
@@ -57,7 +76,6 @@ export default {
       padding: 1em;
     }
     .page {
-      min-height: 100vh;
       padding: 1em;
     }
   }
